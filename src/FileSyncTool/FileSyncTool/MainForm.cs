@@ -90,124 +90,159 @@ namespace FileSyncTool
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileSyncTool.MainForm));
-			this.btnStart = new FileSyncTool.MyControls.MyStartButton();
-			this.pbTotal = new FileSyncTool.MyControls.MyProgressBar();
-			this.lblShow = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.txtComputerFolder = new System.Windows.Forms.TextBox();
-			this.txtUDiskFolder = new System.Windows.Forms.TextBox();
-			this.btnChangeComputerFolder = new FileSyncTool.MyControls.MyButton();
-			this.btnChangeUDiskFolder = new FileSyncTool.MyControls.MyButton();
-			base.SuspendLayout();
-			this.btnStart.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.btnStart.Location = new System.Drawing.Point(172, 132);
-			this.btnStart.Name = "btnStart";
-			this.btnStart.Size = new System.Drawing.Size(45, 45);
-			this.btnStart.TabIndex = 0;
-			this.btnStart.Text = "开始(&S)";
-			this.btnStart.UseVisualStyleBackColor = false;
-			this.btnStart.Click += new System.EventHandler(btnStart_Click);
-			this.pbTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-			this.pbTotal.BackColor = System.Drawing.Color.White;
-			this.pbTotal.Location = new System.Drawing.Point(1, 183);
-			this.pbTotal.Maximum = 1000;
-			this.pbTotal.Minimum = 0;
-			this.pbTotal.Name = "pbTotal";
-			this.pbTotal.ProgressColor = System.Drawing.Color.DarkTurquoise;
-			this.pbTotal.ProgressImage = null;
-			this.pbTotal.ShowLight = true;
-			this.pbTotal.ShowProgressImage = false;
-			this.pbTotal.ShowProgressText = false;
-			this.pbTotal.Size = new System.Drawing.Size(385, 23);
-			this.pbTotal.TabIndex = 1;
-			this.pbTotal.Value = 0;
-			this.lblShow.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-			this.lblShow.AutoSize = true;
-			this.lblShow.Location = new System.Drawing.Point(12, 168);
-			this.lblShow.Name = "lblShow";
-			this.lblShow.Size = new System.Drawing.Size(53, 12);
-			this.lblShow.TabIndex = 2;
-			this.lblShow.Text = "准备就绪";
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 43);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(89, 12);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "计算机资料目录";
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 90);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(71, 12);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "U盘资料目录";
-			this.txtComputerFolder.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-			this.txtComputerFolder.Location = new System.Drawing.Point(12, 60);
-			this.txtComputerFolder.Name = "txtComputerFolder";
-			this.txtComputerFolder.ReadOnly = true;
-			this.txtComputerFolder.Size = new System.Drawing.Size(306, 21);
-			this.txtComputerFolder.TabIndex = 3;
-			this.txtUDiskFolder.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-			this.txtUDiskFolder.Location = new System.Drawing.Point(12, 107);
-			this.txtUDiskFolder.Name = "txtUDiskFolder";
-			this.txtUDiskFolder.ReadOnly = true;
-			this.txtUDiskFolder.Size = new System.Drawing.Size(306, 21);
-			this.txtUDiskFolder.TabIndex = 3;
-			this.btnChangeComputerFolder.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-			this.btnChangeComputerFolder.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.btnChangeComputerFolder.BorderWidth = 1;
-			this.btnChangeComputerFolder.ImageLeftPosition = 0.1f;
-			this.btnChangeComputerFolder.Location = new System.Drawing.Point(324, 60);
-			this.btnChangeComputerFolder.Name = "btnChangeComputerFolder";
-			this.btnChangeComputerFolder.RoundRectWidth = 2;
-			this.btnChangeComputerFolder.Size = new System.Drawing.Size(51, 21);
-			this.btnChangeComputerFolder.TabIndex = 4;
-			this.btnChangeComputerFolder.Text = "更改..";
-			this.btnChangeComputerFolder.TextAlign = System.Drawing.StringAlignment.Center;
-			this.btnChangeComputerFolder.UseVisualStyleBackColor = false;
-			this.btnChangeComputerFolder.Click += new System.EventHandler(btnChangeComputerFolder_Click);
-			this.btnChangeUDiskFolder.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-			this.btnChangeUDiskFolder.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.btnChangeUDiskFolder.BorderWidth = 1;
-			this.btnChangeUDiskFolder.ImageLeftPosition = 0.1f;
-			this.btnChangeUDiskFolder.Location = new System.Drawing.Point(324, 107);
-			this.btnChangeUDiskFolder.Name = "btnChangeUDiskFolder";
-			this.btnChangeUDiskFolder.RoundRectWidth = 2;
-			this.btnChangeUDiskFolder.Size = new System.Drawing.Size(50, 21);
-			this.btnChangeUDiskFolder.TabIndex = 4;
-			this.btnChangeUDiskFolder.Text = "更改..";
-			this.btnChangeUDiskFolder.TextAlign = System.Drawing.StringAlignment.Center;
-			this.btnChangeUDiskFolder.UseVisualStyleBackColor = false;
-			this.btnChangeUDiskFolder.Click += new System.EventHandler(btnChangeUDiskFolder_Click);
-			base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 12f);
-			base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.LightSkyBlue;
-			base.ClientLeft = 13;
-			base.ClientSize = new System.Drawing.Size(386, 206);
-			base.ClientTop = 169;
-			base.Controls.Add(this.btnChangeUDiskFolder);
-			base.Controls.Add(this.btnChangeComputerFolder);
-			base.Controls.Add(this.txtUDiskFolder);
-			base.Controls.Add(this.txtComputerFolder);
-			base.Controls.Add(this.label3);
-			base.Controls.Add(this.label2);
-			base.Controls.Add(this.lblShow);
-			base.Controls.Add(this.pbTotal);
-			base.Controls.Add(this.btnStart);
-			this.DoubleBuffered = true;
-			base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			base.Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-			base.MaximizeBox = false;
-			base.Name = "MainForm";
-			base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "文件资料同步工具";
-			base.TopMost = true;
-			base.Load += new System.EventHandler(MainForm_Load);
-			base.FormClosing += new System.Windows.Forms.FormClosingEventHandler(MainForm_FormClosing);
-			base.ResumeLayout(false);
-			base.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.btnStart = new FileSyncTool.MyControls.MyStartButton();
+            this.pbTotal = new FileSyncTool.MyControls.MyProgressBar();
+            this.lblShow = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtComputerFolder = new System.Windows.Forms.TextBox();
+            this.txtUDiskFolder = new System.Windows.Forms.TextBox();
+            this.btnChangeComputerFolder = new FileSyncTool.MyControls.MyButton();
+            this.btnChangeUDiskFolder = new FileSyncTool.MyControls.MyButton();
+            this.SuspendLayout();
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnStart.Location = new System.Drawing.Point(172, 132);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(45, 45);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "开始(&S)";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // pbTotal
+            // 
+            this.pbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbTotal.BackColor = System.Drawing.Color.White;
+            this.pbTotal.Location = new System.Drawing.Point(1, 255);
+            this.pbTotal.Maximum = 1000;
+            this.pbTotal.Minimum = 0;
+            this.pbTotal.Name = "pbTotal";
+            this.pbTotal.ProgressColor = System.Drawing.Color.DarkTurquoise;
+            this.pbTotal.ProgressImage = null;
+            this.pbTotal.ShowLight = true;
+            this.pbTotal.ShowProgressImage = false;
+            this.pbTotal.ShowProgressText = false;
+            this.pbTotal.Size = new System.Drawing.Size(432, 23);
+            this.pbTotal.TabIndex = 1;
+            this.pbTotal.Value = 0;
+            // 
+            // lblShow
+            // 
+            this.lblShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblShow.Location = new System.Drawing.Point(12, 180);
+            this.lblShow.Name = "lblShow";
+            this.lblShow.Size = new System.Drawing.Size(410, 72);
+            this.lblShow.TabIndex = 2;
+            this.lblShow.Text = "准备就绪";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "计算机资料目录";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "U盘资料目录";
+            // 
+            // txtComputerFolder
+            // 
+            this.txtComputerFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtComputerFolder.Location = new System.Drawing.Point(12, 60);
+            this.txtComputerFolder.Name = "txtComputerFolder";
+            this.txtComputerFolder.ReadOnly = true;
+            this.txtComputerFolder.Size = new System.Drawing.Size(353, 21);
+            this.txtComputerFolder.TabIndex = 3;
+            // 
+            // txtUDiskFolder
+            // 
+            this.txtUDiskFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUDiskFolder.Location = new System.Drawing.Point(12, 107);
+            this.txtUDiskFolder.Name = "txtUDiskFolder";
+            this.txtUDiskFolder.ReadOnly = true;
+            this.txtUDiskFolder.Size = new System.Drawing.Size(353, 21);
+            this.txtUDiskFolder.TabIndex = 3;
+            // 
+            // btnChangeComputerFolder
+            // 
+            this.btnChangeComputerFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeComputerFolder.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnChangeComputerFolder.BorderWidth = 1;
+            this.btnChangeComputerFolder.ImageLeftPosition = 0.1F;
+            this.btnChangeComputerFolder.Location = new System.Drawing.Point(371, 60);
+            this.btnChangeComputerFolder.Name = "btnChangeComputerFolder";
+            this.btnChangeComputerFolder.RoundRectWidth = 2;
+            this.btnChangeComputerFolder.Size = new System.Drawing.Size(51, 21);
+            this.btnChangeComputerFolder.TabIndex = 4;
+            this.btnChangeComputerFolder.Text = "更改..";
+            this.btnChangeComputerFolder.TextAlign = System.Drawing.StringAlignment.Center;
+            this.btnChangeComputerFolder.UseVisualStyleBackColor = false;
+            this.btnChangeComputerFolder.Click += new System.EventHandler(this.btnChangeComputerFolder_Click);
+            // 
+            // btnChangeUDiskFolder
+            // 
+            this.btnChangeUDiskFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeUDiskFolder.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnChangeUDiskFolder.BorderWidth = 1;
+            this.btnChangeUDiskFolder.ImageLeftPosition = 0.1F;
+            this.btnChangeUDiskFolder.Location = new System.Drawing.Point(371, 107);
+            this.btnChangeUDiskFolder.Name = "btnChangeUDiskFolder";
+            this.btnChangeUDiskFolder.RoundRectWidth = 2;
+            this.btnChangeUDiskFolder.Size = new System.Drawing.Size(50, 21);
+            this.btnChangeUDiskFolder.TabIndex = 4;
+            this.btnChangeUDiskFolder.Text = "更改..";
+            this.btnChangeUDiskFolder.TextAlign = System.Drawing.StringAlignment.Center;
+            this.btnChangeUDiskFolder.UseVisualStyleBackColor = false;
+            this.btnChangeUDiskFolder.Click += new System.EventHandler(this.btnChangeUDiskFolder_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientLeft = 13;
+            this.ClientSize = new System.Drawing.Size(433, 278);
+            this.ClientTop = 192;
+            this.Controls.Add(this.btnChangeUDiskFolder);
+            this.Controls.Add(this.btnChangeComputerFolder);
+            this.Controls.Add(this.txtUDiskFolder);
+            this.Controls.Add(this.txtComputerFolder);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblShow);
+            this.Controls.Add(this.pbTotal);
+            this.Controls.Add(this.btnStart);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "文件资料同步工具";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 
 		public MainForm()
