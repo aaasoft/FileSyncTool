@@ -283,26 +283,36 @@ namespace FileSyncTool
 
 		private void TongBuThread()
 		{
-			PushResult("初始化中...");
-			List<string> list = new List<string>();
-			List<string> list2 = new List<string>();
-			List<string> list3 = new List<string>();
-			List<string> list4 = new List<string>();
-			PushResult("扫描计算机文件资料目录中...");
-			ScanFolder(ComputerFolder, list, list2);
-			PushResult("扫描U盘文件资料目录中...");
-			ScanFolder(UDiskFolder, list3, list4);
-			PushResult("检查U盘文件资料目录中...");
-			CheckFolder(ComputerFolder, UDiskFolder, list, list3);
-			PushResult("检查计算机文件资料目录中...");
-			CheckFolder(UDiskFolder, ComputerFolder, list3, list);
-			PushResult("同步计算机内文件中...");
-			CheckFile(ComputerFolder, UDiskFolder, list2, list4);
-			PushResult("同步U盘内文件中...");
-			CheckFile(UDiskFolder, ComputerFolder, list4, list2);
-			MainFormSetting.LastTongBuTime = DateTime.Now;
-			PushResult("准备就绪 | 最后一次同步时间:" + MainFormSetting.LastTongBuTime.ToLocalTime());
-			WhenEnd();
+			try
+			{
+				PushResult("初始化中...");
+				List<string> list = new List<string>();
+				List<string> list2 = new List<string>();
+				List<string> list3 = new List<string>();
+				List<string> list4 = new List<string>();
+				PushResult("扫描计算机文件资料目录中...");
+				ScanFolder(ComputerFolder, list, list2);
+				PushResult("扫描U盘文件资料目录中...");
+				ScanFolder(UDiskFolder, list3, list4);
+				PushResult("检查U盘文件资料目录中...");
+				CheckFolder(ComputerFolder, UDiskFolder, list, list3);
+				PushResult("检查计算机文件资料目录中...");
+				CheckFolder(UDiskFolder, ComputerFolder, list3, list);
+				PushResult("同步计算机内文件中...");
+				CheckFile(ComputerFolder, UDiskFolder, list2, list4);
+				PushResult("同步U盘内文件中...");
+				CheckFile(UDiskFolder, ComputerFolder, list4, list2);
+				MainFormSetting.LastTongBuTime = DateTime.Now;
+				PushResult("准备就绪 | 最后一次同步时间:" + MainFormSetting.LastTongBuTime.ToLocalTime());				
+			}
+			catch(Exception ex)
+			{
+                PushResult(ex.Message);
+            }
+			finally
+			{
+                WhenEnd();
+            }
 		}
 
 		public void ScanFolder(string folderName, List<string> FolderList, List<string> FileList)
@@ -371,16 +381,23 @@ namespace FileSyncTool
 				string text2 = desFolder + text.Substring(length);
 				if (File.Exists(text2))
 				{
-					FileInfo fileInfo = new FileInfo(text);
-					FileInfo fileInfo2 = new FileInfo(text2);
-					long ticks = (fileInfo.LastWriteTime - fileInfo2.LastWriteTime).Ticks;
-					if (ticks > 0)
+					try
 					{
-						File.Copy(text, text2, true);
+						FileInfo fileInfo = new FileInfo(text);
+						FileInfo fileInfo2 = new FileInfo(text2);
+						long ticks = (fileInfo.LastWriteTime - fileInfo2.LastWriteTime).Ticks;
+						if (ticks > 0)
+						{
+							File.Copy(text, text2, true);
+						}
+						else if (ticks < 0)
+						{
+							File.Copy(text2, text, true);
+						}
 					}
-					else if (ticks < 0)
+					catch(Exception ex)
 					{
-						File.Copy(text2, text, true);
+						throw new IOException($"复制文件[{text.Substring(srcFolder.Length)}]时出错,原因:{ex.Message}");
 					}
 				}
 				else
